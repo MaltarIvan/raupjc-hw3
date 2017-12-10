@@ -1,0 +1,36 @@
+﻿@using Task1
+@using Task2.Models.Todo;
+@model IndexViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Todo/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Todo Items</title>
+</head>
+<body>
+    <h2>Todo</h2>
+    <ul>
+        <li style="display:inline-block;">
+            <a asp-action="Add" style="text-decoration:none; color:#0000FF; margin-right:20px;">Add new todos</a>
+        </li>
+        <li style="display:inline-block;">
+            <a asp-action="SeeCompletedTodos" style="text-decoration:none; color:#0000FF;">See completed controllers</a>
+        </li>
+    </ul>
+    @foreach (var item in Model.TodoViewModels)
+    {
+        <h4>@item.Text</h4>
+        <p>@item.DateCreated</p>
+        <a asp-action="MarkAsCompleted" asp-route-Id="@item.Id" style="color:blue">Mark as completed</a>
+    }
+</body>
+</html>
+
+

@@ -1,0 +1,15 @@
+﻿@using Task2.Models.Todo;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model AddTodoViewModel
+@{
+    ViewData["Title"] = "AddNewTodo";
+    Layout = "~/Views/Todo/_Layout.cshtml";
+}
+
+<h2>AddNewTodo</h2>
+<form asp-action="Add" method="post">
+    Text: <input asp-for="Text"/><span asp-validation-for="Text"></span><br />
+    Date due: <input asp-for="DateDue"/><span asp-validation-for="DateDue"></span><br />
+    <input type="submit" />
+</form>
+
