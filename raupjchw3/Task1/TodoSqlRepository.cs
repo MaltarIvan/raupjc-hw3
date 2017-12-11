@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Task1
 {
@@ -92,6 +93,7 @@ namespace Task1
                 else
                 {
                     _context.TodoItems.Remove(todoItem);
+                    _context.SaveChanges();
                     return true;
                 }
             }

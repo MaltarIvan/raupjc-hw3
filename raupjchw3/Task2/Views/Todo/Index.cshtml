@@ -16,19 +16,25 @@
 </head>
 <body>
     <h2>Todo</h2>
-    <ul>
-        <li style="display:inline-block;">
-            <a asp-action="Add" style="text-decoration:none; color:#0000FF; margin-right:20px;">Add new todos</a>
-        </li>
-        <li style="display:inline-block;">
-            <a asp-action="SeeCompletedTodos" style="text-decoration:none; color:#0000FF;">See completed controllers</a>
-        </li>
-    </ul>
+    <div style="margin-bottom:50px">
+        <a asp-action="Add" style="display:inline-block; text-decoration:none; color:#0000FF; margin-right:20px;">Add new todos</a>
+        <a asp-action="Completed" style="display:inline-block; text-decoration:none; color:#0000FF;">See completed todos</a>
+    </div>
     @foreach (var item in Model.TodoViewModels)
     {
-        <h4>@item.Text</h4>
-        <p>@item.DateCreated</p>
-        <a asp-action="MarkAsCompleted" asp-route-Id="@item.Id" style="color:blue">Mark as completed</a>
+        <div style="margin-bottom:30px">
+            <h4 style="display:inline-block; margin-right:5px;">@item.Text</h4>
+            <p style="display:inline-block; color:red">@item.DaysUntilDue</p>
+            @if (item.DateDue.HasValue)
+            {
+                <p>@item.getDateDueShort()</p>
+            }
+            else
+            {
+                <br />
+            }
+            <a asp-action="MarkAsCompleted" asp-route-Id="@item.Id" style="color:blue">Mark as completed</a>
+        </div>
     }
 </body>
 </html>

@@ -8,7 +8,7 @@
 
 <h2>AddNewTodo</h2>
 <form asp-action="Add" method="post">
-    Text: <input asp-for="Text"/><span asp-validation-for="Text"></span><br />
+    Text: <input asp-for="Text"/><span asp-validation-for="Text" style="color:red"></span><br />
     Date due: <input asp-for="DateDue"/><span asp-validation-for="DateDue"></span><br />
     <input type="submit" />
 </form>

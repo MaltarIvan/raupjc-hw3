@@ -17,8 +17,34 @@ namespace Task2.Models.Todo
             }
         }
         public DateTime? DateCompleted { get; set; }
+        public string getDateCompletedShort()
+        {
+            if (DateCompleted.HasValue)
+            {
+                return ((DateTime)DateCompleted).ToShortDateString();
+            }
+            else
+            {
+                return "";
+            }
+        }
         public DateTime DateCreated { get; set; }
+        public string getDateCreatedShort()
+        {
+            return DateCreated.ToShortDateString();
+        }
         public DateTime? DateDue { get; set; }
+        public string getDateDueShort()
+        {
+            if (DateDue.HasValue)
+            {
+                return ((DateTime)DateDue).ToShortDateString();
+            }
+            else
+            {
+                return "";
+            }
+        }
         public List<TodoItemLabel> Labels { get; set; }
         public bool MarkAsCompleted()
         {
@@ -29,10 +55,16 @@ namespace Task2.Models.Todo
             }
             return false;
         }
-        public TimeSpan? DaysUntilDue{
+        public string DaysUntilDue{
             get
             {
-                return DateDue - DateTime.UtcNow;
+                if (DateDue.HasValue)
+                {
+                    return "(za " + ((DateTime)DateDue - DateTime.Now).Days.ToString() + " dana!)";
+                } else
+                {
+                    return "";
+                }
             }
         }
 
