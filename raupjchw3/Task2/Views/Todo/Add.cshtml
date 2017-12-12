@@ -10,6 +10,6 @@
 <form asp-action="Add" method="post">
     Text: <input asp-for="Text"/><span asp-validation-for="Text" style="color:red"></span><br />
     Date due: <input asp-for="DateDue"/><span asp-validation-for="DateDue"></span><br />
-    Label: <input asp-for="Labels"/><span asp-validation-for="Labels"></span><br />
+    Labels (Split with ' , '): <input asp-for="Labels"/><span asp-validation-for="Labels"></span><br />
     <input type="submit" />
     </form>

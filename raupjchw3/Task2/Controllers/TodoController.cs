@@ -61,9 +61,14 @@ namespace Task2.Controllers
                 };
                 if (item.Labels != null)
                 {
-                    TodoItemLabel todoItemLabel = new TodoItemLabel(item.Labels);
-                    todoItemLabel = _repository.AddLabel(todoItemLabel);
-                    todo.Labels.Add(todoItemLabel);
+                    string[] labels = item.Labels.Split(',');
+                    List<TodoItemLabel> todoItemLabels = new List<TodoItemLabel>();
+                    foreach (var l in labels)
+                    {
+                        TodoItemLabel todoItemLabel = new TodoItemLabel(l.Trim());
+                        todoItemLabel = _repository.AddLabel(todoItemLabel);
+                        todo.Labels.Add(todoItemLabel);
+                    }
                 }
                 _repository.Add(todo);
                 return RedirectToAction("Index");
