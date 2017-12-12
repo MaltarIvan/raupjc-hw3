@@ -116,5 +116,40 @@ namespace Task1
                 Add(todoItem);
             }
         }
+
+        public List<TodoItemLabel> GetAllLabels()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TodoItemLabel> GetNotContainedLabels(Guid itemId, Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TodoItemLabel> GetLabelsForItem(Guid itemId, Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLabelToItem(Guid itemId, Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TodoItemLabel AddLabel(TodoItemLabel item)
+        {
+            TodoItemLabel todoItemLabel = _context.TodoItemLabels.SingleOrDefault(l => l.Value == item.Value);
+            if (todoItemLabel != null)
+            {
+                return todoItemLabel;
+            }
+            else
+            {
+                _context.TodoItemLabels.Add(item);
+                _context.SaveChanges();
+                return item;
+            }
+        }
     }
 }

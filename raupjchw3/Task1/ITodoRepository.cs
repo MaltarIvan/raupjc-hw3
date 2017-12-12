@@ -56,5 +56,23 @@ namespace Task1
         /// Gets all TodoItem objects in database for user that apply to the filter
         /// </ summary >
         List<TodoItem> GetFiltered (Func<TodoItem, bool> filterFunction, Guid userId);
+        /// <summary>
+        /// Get all labels from database
+        /// </summary>
+        List<TodoItemLabel> GetAllLabels();
+        /// <summary>
+        /// Get labels from database that this item contains
+        /// </summary>
+        List<TodoItemLabel> GetLabelsForItem(Guid itemId, Guid userId);
+        /// <summary>
+        /// Get labels from database that this TodoItem doesnt contain
+        /// </summary>
+        List<TodoItemLabel> GetNotContainedLabels(Guid itemId, Guid userId);
+        /// <summary>
+        /// Adds a label to TodoItem
+        /// If the new label is added to database if it's not already in there
+        /// </summary>
+        void AddLabelToItem(Guid itemId, Guid userId);
+        TodoItemLabel AddLabel(TodoItemLabel todoItemLabel);
     }
 }

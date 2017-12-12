@@ -11,5 +11,6 @@ namespace Task2.Models.Todo
         [Required]
         public string Text { get; set; }
         public DateTime? DateDue { get; set; }
+        public string Labels { get; set; }
     }
 }
