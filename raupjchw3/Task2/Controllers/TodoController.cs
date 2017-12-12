@@ -59,32 +59,17 @@ namespace Task2.Controllers
                 {
                     DateDue = item.DateDue
                 };
-                TodoItemLabel todoItemLabel = new TodoItemLabel(item.Labels);
-                todoItemLabel = _repository.AddLabel(todoItemLabel);
-                todo.Labels.Add(todoItemLabel);
+                if (item.Labels != null)
+                {
+                    TodoItemLabel todoItemLabel = new TodoItemLabel(item.Labels);
+                    todoItemLabel = _repository.AddLabel(todoItemLabel);
+                    todo.Labels.Add(todoItemLabel);
+                }
                 _repository.Add(todo);
                 return RedirectToAction("Index");
             }
             return View();
         }
-
-        /**
-        [HttpGet("AddLabel/{Id}")]
-        public async Task<IActionResult> AddLabel(Guid Id, AddLabelViewModel item)
-        {
-            ApplicationUser applicationUser = await _userManager.GetUserAsync(HttpContext.User);
-            if (ModelState.IsValid)
-            {
-                TodoItem todoItem = _repository.Get(Id, new Guid(applicationUser.Id));
-                TodoItemLabel todoItemLabel = new TodoItemLabel(item.Text);
-                todoItemLabel = _repository.AddLabel(todoItemLabel);
-                todoItem.Labels.Add(todoItemLabel);
-                _repository.Update(todoItem, new Guid(applicationUser.Id));
-                return RedirectToAction("Index");
-            }
-            return View();
-        }
-    */
 
         public async Task<IActionResult> Completed()
         {

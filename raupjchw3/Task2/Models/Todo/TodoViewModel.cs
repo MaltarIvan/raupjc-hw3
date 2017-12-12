@@ -60,7 +60,15 @@ namespace Task2.Models.Todo
             {
                 if (DateDue.HasValue)
                 {
-                    return "(za " + ((DateTime)DateDue - DateTime.Now).Days.ToString() + " dana!)";
+                    int days = ((DateTime)DateDue - DateTime.Now).Days;
+                    if (days >= 0)
+                    {
+                        return "(za " + days.ToString() + " dana!)";
+                    }
+                    else
+                    {
+                        return "(The deadline has passed!)";
+                    }
                 } else
                 {
                     return "";
