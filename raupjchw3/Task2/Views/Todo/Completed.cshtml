@@ -15,12 +15,13 @@
     <title>Completed items</title>
 </head>
 <body>
-    <h2 style="margin-bottom=50px">Completed Todos</h2>
+    <h2 style="margin-bottom:50px">Completed Todos</h2>
     @foreach (var item in Model.TodoViewModels)
     {
-        <h4>@item.Text</h4>
-        <p>@item.getDateCompletedShort()</p>
-        <a asp-action="RemoveFromCompleted" asp-route-Id="@item.Id" style="color:blue">Remove from completed</a>
+        <div style="margin-bottom:30px">
+            @Html.Partial("TodoPartial", item)
+            <a asp-action="RemoveFromCompleted" asp-route-Id="@item.Id" style="color:blue;">Remove from completed</a>
+        </div>
     }
 </body>
 </html>

@@ -17,15 +17,29 @@ namespace Task2.Models.Todo
             }
         }
         public DateTime? DateCompleted { get; set; }
-        public string getDateCompletedShort()
+        private string getDateCompletedShort()
         {
             if (DateCompleted.HasValue)
             {
+                //HasDate = true;
                 return ((DateTime)DateCompleted).ToShortDateString();
             }
             else
             {
+                //HasDate = false;
                 return "";
+            }
+        }
+        //public bool HasDate { get; set; }
+        public string getDate()
+        {
+            if (IsCompleted)
+            {
+                return getDateCompletedShort();
+            }
+            else
+            {
+                return getDateDueShort();
             }
         }
         public DateTime DateCreated { get; set; }
@@ -34,14 +48,16 @@ namespace Task2.Models.Todo
             return DateCreated.ToShortDateString();
         }
         public DateTime? DateDue { get; set; }
-        public string getDateDueShort()
+        private string getDateDueShort()
         {
             if (DateDue.HasValue)
             {
+                //HasDate = true;
                 return ((DateTime)DateDue).ToShortDateString();
             }
             else
             {
+                //HasDate = false;
                 return "";
             }
         }
@@ -58,7 +74,7 @@ namespace Task2.Models.Todo
         public string DaysUntilDue{
             get
             {
-                if (DateDue.HasValue)
+                if (DateDue.HasValue && !IsCompleted)
                 {
                     int days = ((DateTime)DateDue - DateTime.Now).Days;
                     if (days >= 0)
