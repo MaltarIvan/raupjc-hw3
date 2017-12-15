@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
-    <UserSecretsId>aspnet-Task2-FA7ACB40-FAE3-4418-AD3D-94A3C05071C7</UserSecretsId>
+    <UserSecretsId>aspnet-Task2-CE8AC3CA-8CF9-4902-B69D-389AC50AEF6E</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />

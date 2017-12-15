@@ -130,7 +130,7 @@ namespace Task2.Pages.Account.Manage
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("Task2a"),
+                _urlEncoder.Encode("Task2"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

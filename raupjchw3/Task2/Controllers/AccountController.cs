@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Task2.Data;
 
-namespace Task2a.Controllers
+namespace Task2.Controllers
 {
     [Route("[controller]/[action]")]
     public class AccountController : Controller
@@ -27,6 +27,7 @@ namespace Task2a.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
+            //return RedirectToPage("/Index");
             return RedirectToAction("Index", "Todo");
         }
     }

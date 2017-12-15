@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Task2.Data;
 
-namespace Task2a.Pages.Account.Manage
+namespace Task2.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {

@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Task2.Data;
 using Task2.Services;
-using Task2.Pages.Account;
 
 namespace Task2.Pages.Account
 {
