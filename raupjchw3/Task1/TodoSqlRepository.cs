@@ -21,6 +21,13 @@ namespace Task1
                 throw new DuplicateTodoItemException("The item already exists in a database!");
             } else
             {
+                // ensuring that the two labels with the same name wont be in the database
+                List<TodoItemLabel> labelsList = new List<TodoItemLabel>();
+                foreach (var label in todoItem.Labels)
+                {
+                    labelsList.Add(AddLabel(label));
+                }
+                todoItem.Labels = labelsList;
                 _context.TodoItems.Add(todoItem);
                 _context.SaveChanges();
             }
@@ -139,6 +146,7 @@ namespace Task1
 
         public TodoItemLabel AddLabel(TodoItemLabel item)
         {
+            // ensuring that the label won't be put to the database if the same label allready exists
             TodoItemLabel todoItemLabel = _context.TodoItemLabels.SingleOrDefault(l => l.Value == item.Value);
             if (todoItemLabel != null)
             {

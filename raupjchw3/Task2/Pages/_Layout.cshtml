@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Task2a</title>
+    <title>@ViewData["Title"] - Task2</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,13 +26,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">Task2a</a>
+                <a asp-controller="Todo" asp-action="Index" class="navbar-brand">Task2</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+                    <li><a asp-controller="Todo" asp-action="Index">Home</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -42,7 +40,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - Task2a</p>
+            <p>&copy; 2017 - Task2</p>
         </footer>
     </div>
 

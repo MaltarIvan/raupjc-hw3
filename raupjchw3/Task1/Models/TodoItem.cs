@@ -51,7 +51,6 @@ namespace Task1
             if (!IsCompleted)
             {
                 DateCompleted = DateTime.Now;
-                //IsCompleted = true;
                 return true;
             }
             return false;

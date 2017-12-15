@@ -66,7 +66,9 @@ namespace Task2.Controllers
                     foreach (var l in labels)
                     {
                         TodoItemLabel todoItemLabel = new TodoItemLabel(l.Trim());
+                        /**
                         todoItemLabel = _repository.AddLabel(todoItemLabel);
+    */
                         todo.Labels.Add(todoItemLabel);
                     }
                 }
